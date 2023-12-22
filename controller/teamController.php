@@ -1,27 +1,27 @@
 <?php
+// teamController.php
 include '../model/Team.php';
 
-class teamController{
-
-  public function insertAction($teamId, $teamName, $creationDate, $country){
-    $team=new Team();
-    $team->insert($teamId, $teamName, $creationDate, $country);
-    exit();
-  }
+class TeamController {
   
-  public function updateAction($teamId, $teamName, $creationDate, $country){
-    $team=new Team();
-    $team->update($teamId, $teamName, $creationDate, $country);
-    exit();
-  }
-  public function deleteAction($teamId, $teamName, $creationDate, $country){
-    $team=new Team();
-    $team->delete($teamId, $teamName, $creationDate, $country);
-    exit();
-  }
-  public function selectAction($teamId, $teamName, $creationDate, $country){
-    $team=new Team();
-    $team->select($teamId, $teamName, $creationDate, $country);
-    exit();
-  }
+    public function insertAction($teamName, $creationDate, $country) {
+        $team = new Team();
+        $team->insert($teamName, $creationDate, $country);
+    }
+  
+    public function updateAction($teamId, $teamName, $creationDate, $country) {
+        $team = new Team();
+        $team->update($teamId, $teamName, $creationDate, $country);
+    }
+
+    public function deleteAction($teamId) {
+        $team = new Team();
+        $team->delete($teamId);
+    }
+
+    public function selectAction() {
+        $team = new Team();
+        $result = $team->selectAll();
+        return $result;
+    }
 }
