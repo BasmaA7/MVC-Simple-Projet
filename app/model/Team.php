@@ -1,6 +1,9 @@
 <?php
-// Team.php
-require '../database/Connexion.php';
+namespace App\Model;
+require_once __DIR__ . '/../../vendor/autoload.php';
+use App\database\Connexion;
+use PDO;
+
 
 class Team {
     private $pdo;
@@ -9,8 +12,7 @@ class Team {
         $this->pdo = Connexion::goDB();
     }
 
-    public function insert( ) {
-        
+    public function insert($teamId, $teamName, $creationDate, $country) {
         $sql = "INSERT INTO teams (team_name, creation_date, country) VALUES ($teamName, $creationDate, $country)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$teamName, $creationDate, $country, $teamId]);
