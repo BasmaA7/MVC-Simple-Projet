@@ -2,7 +2,7 @@
 // teamController.php
 include '../model/Team.php';
 
-class TeamController {
+class TeamController extends Controller {
   
     public function insertAction($teamName, $creationDate, $country) {
         $team = new Team();
